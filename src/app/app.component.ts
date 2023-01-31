@@ -8,5 +8,6 @@ import { environment } from 'src/environments/environment';
 })
 export class AppComponent {
   title = environment.version;
+  
 
 }

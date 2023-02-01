@@ -22,8 +22,8 @@ steps:
       npm install -g @angular/cli
       npm install
       ng build --configuration $(environment)
-      mkdir $(Build.ArtifactStagingDirectory)\\dist
-      xcopy dist\\environmentspecific/* $(Build.ArtifactStagingDirectory)\\dist /E/H/C
+      mkdir -p $(Build.ArtifactStagingDirectory)/dist
+      cp -rf dist/environmentspecific/* $(Build.ArtifactStagingDirectory)/dist
     displayName: "npm install and build and copy to artifact location"
 
   - task: PublishBuildArtifacts@1

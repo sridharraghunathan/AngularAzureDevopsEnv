@@ -7,7 +7,7 @@ trigger:
   - master
 
 variables:
-  environment: devlopment
+  environment: development
 
 pool:
   vmImage: ubuntu-latest

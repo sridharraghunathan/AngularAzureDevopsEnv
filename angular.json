@@ -63,7 +63,7 @@
                 }
               ]
             },
-            "SIT": {
+            "sit": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -84,7 +84,7 @@
               "browserTarget": "environmentspecific:build:development"
             },
             "sit": {
-              "browserTarget": "environmentspecific:build:SIT"
+              "browserTarget": "environmentspecific:build:sit"
             }
           },
           "defaultConfiguration": "development"

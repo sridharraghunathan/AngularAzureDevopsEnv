@@ -30,3 +30,18 @@ steps:
     command: 'push'
     Dockerfile: '**/Dockerfile'
     tags: 'latest'
+
+- pwsh: |       
+      Get-ChildItem -Path $(Build.SourcesDirectory)\*.* -Recurse -Force | Out-String -Width 180
+  errorActionPreference: continue
+  displayName: 'List content'
+  continueOnError: true
+
+- task: KubernetesManifest@0
+  inputs:
+    action: 'deploy'
+    kubernetesServiceConnection: 'devops-aks-cluster'
+    namespace: 'dev'
+    manifests: | 
+      $(Build.SourcesDirectory)/Angular .NET Learning/Manifests/app.yml
+      $(Build.SourcesDirectory)/Angular .NET Learning/Manifests/service.yml

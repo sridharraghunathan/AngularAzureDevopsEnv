@@ -13,3 +13,11 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- task: Docker@2
+  inputs:
+    containerRegistry: 'docker-registry-devops'
+    repository: 'devops-angular-envconfig'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+    tags: 'latest'
+    arguments: --build-arg sit

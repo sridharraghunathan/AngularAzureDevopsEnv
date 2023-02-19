@@ -21,7 +21,7 @@ steps:
     command: 'build'
     Dockerfile: '**/Dockerfile'
     tags: 'latest'
-    arguments: --build-arg Environment=sit
+    arguments: --build-arg Environment=$(environment)
 - task: Docker@2
   displayName: Push the image
   inputs:
@@ -43,5 +43,5 @@ steps:
     kubernetesServiceConnection: 'devops-aks-cluster'
     namespace: 'dev'
     manifests: | 
-      $(Build.SourcesDirectory)/Manifests/app.yml
-      $(Build.SourcesDirectory)/Manifests/service.yml
+      $(Build.SourcesDirectory)/Manifest/app.yml
+      $(Build.SourcesDirectory)/Manifest/service.yml

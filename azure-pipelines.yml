@@ -7,7 +7,7 @@ trigger:
   - develop
 
 variables:
-  environment: development
+  environment: dev
 
 pool:
   vmImage: ubuntu-latest

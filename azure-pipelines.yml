@@ -14,10 +14,19 @@ pool:
 
 steps:
 - task: Docker@2
+  displayName: Build the image
   inputs:
     containerRegistry: 'docker-registry-devops'
     repository: 'devops-angular-envconfig'
-    command: 'buildAndPush'
+    command: 'build'
     Dockerfile: '**/Dockerfile'
     tags: 'latest'
     arguments: --build-arg sit
+- task: Docker@2
+  displayName: Push the image
+  inputs:
+    containerRegistry: 'docker-registry-devops'
+    repository: 'devops-angular-envconfig'
+    command: 'push'
+    Dockerfile: '**/Dockerfile'
+    tags: 'latest'
